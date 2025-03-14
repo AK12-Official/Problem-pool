@@ -45,7 +45,8 @@ int *decrypt(int *code, int codeSize, int k, int *returnSize)
         for (int i = 0; i < codeSize; i++)
         {
             // 将sum赋值给某元素
-            ret[(codeSize - 1 + i) % codeSize] = sum;
+            //ret[(codeSize - 1 + i) % codeSize] = sum;
+            ret[(i+k)%codeSize]=sum;
             // 修改sum的值
             sum = sum - code[i] + code[(i + k) % codeSize];
         }
