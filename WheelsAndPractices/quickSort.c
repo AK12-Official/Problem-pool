@@ -6,8 +6,8 @@ void quickSort(int *arr, int left, int right)
     }
     // 分区
     int pivot = Partition(arr, left, right);
-    qucikSort(arr, left, pivot - 1);
-    qucikSort(arr, pivot + 1, right);
+    quickSort(arr, left, pivot - 1);
+    quickSort(arr, pivot + 1, right);
 }
 
 int Partition(int *arr, int left, int right)
