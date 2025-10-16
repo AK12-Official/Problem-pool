@@ -10,12 +10,13 @@ class Solution {
 
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], map.getOrDefault(target - nums[i], 0));
-            if (map.get(nums[i]) != 0) {
-                ans[0] = map.get(nums[i]);
-                ans[1] = nums[i];
+            int k=target-nums[i];
+            if(map.containsKey(k)){
+                ans[0]=map.get(k);
+                ans[1]=i;
                 return ans;
             }
+            map.put(nums[i],i);
         }
         return ans;
     }
