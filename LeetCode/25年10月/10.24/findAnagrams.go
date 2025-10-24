@@ -49,3 +49,29 @@ func isAnagram(a, b map[byte]int) bool {
 	}
 	return true
 }
+
+func findAnagramsPRO(s string, p string) (ans []int) {
+	cntP := [26]int{}
+	cntS := [26]int{}
+
+	for _, v := range p {
+		cntP[v-'a']++
+	}
+
+	for right := 0; right < len(s); right++ {
+		cntS[s[right]-'a']++ //右端点进入窗口
+
+		left := right - len(p) + 1
+		if left < 0 {
+			continue
+		}
+
+		if cntP == cntS {
+			ans = append(ans, left)
+		}
+
+		cntS[s[left]-'a']--
+		left++
+	}
+	return
+}
