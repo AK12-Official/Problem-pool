@@ -17,7 +17,7 @@ func specialTriplets(nums []int) (ans int) {
 	return ans % mod
 }
 
-func specialTriplets(nums []int) (cnt123 int) {
+func specialTripletsPro(nums []int) (cnt123 int) {
 	const mod = 1_000_000_007
 	cnt1 := map[int]int{}
 	cnt12 := map[int]int{}
